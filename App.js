@@ -1,12 +1,20 @@
+import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import ShopNavigation from './src/Navigation/ShopNavigation';
 
 export default function App() {
+
+  const [ loaded ] = useFonts({
+    Teko: require('./src/Assets/Fonts/Teko-Bold.ttf'),
+    Righteous: require('./src/Assets/Fonts/Righteous-Regular.ttf')
+  })
+
+  if (!loaded) return null
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ShopNavigation />
   );
 }
 
