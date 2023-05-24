@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const FigurasDetailScreen = () => {
+const FigurasDetailScreen = ({route}) => {
+
+  const figura = route.params.produc
+
   return (
     <View>
-      <Text>FigurasDetailScreen</Text>
+      <Text>{figura.name}</Text>
+      <Text>{figura.description}</Text>
+      <Text>${figura.price}</Text>
     </View>
   )
 }
