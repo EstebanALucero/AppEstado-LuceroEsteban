@@ -1,8 +1,10 @@
 import { useFonts } from 'expo-font';
 import { StyleSheet, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
 
 import BottomTabNavigator from './src/Navigation/BottomTabNavigator';
+import Store from './src/Store';
 
 export default function App() {
 
@@ -14,9 +16,11 @@ export default function App() {
   if (!loaded) return null
   
   return (
-    <NavigationContainer>
-      <BottomTabNavigator />
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer>
+        <BottomTabNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-const FigurasDetailScreen = ({route}) => {
+const FigurasDetailScreen = () => {
 
-  const figura = route.params.produc
+  const figura = useSelector(state => state.products.selected)
 
   return (
     <View>
