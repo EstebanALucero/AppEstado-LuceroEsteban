@@ -1,9 +1,13 @@
 {
   "expo": {
-    "name": "Proyecto4",
-    "slug": "Proyecto4",
+    "name": "Black Tail",
+    "slug": "black-tail",
     "version": "1.0.0",
     "icon": "./assets/icon.png",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -18,12 +22,25 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.esteban.blacktail"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c3735c6c-6d9f-486b-985f-bc2082678dc8"
+      }
+    },
+    "owner": "27esteban",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c3735c6c-6d9f-486b-985f-bc2082678dc8"
     }
   }
 }

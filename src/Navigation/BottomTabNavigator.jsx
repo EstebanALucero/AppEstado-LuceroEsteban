@@ -5,6 +5,7 @@ import Ionincons from "@expo/vector-icons/Ionicons"
 import CartNavigator from "./CartNavigator";
 import ShopNavigation from "./ShopNavigation";
 import OrdersNavigator from "./OrdersNavigator";
+import PedidoNavigator from "./PedidoNavigator";
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -49,6 +50,17 @@ export default BottomTabNavigator = () => {
                         </View>
                     )
                 }} 
+            />
+            <BottomTabs.Screen 
+                name="PedidoNavigator" 
+                component={PedidoNavigator} 
+                options={{
+                    tabBarIcon: () => (
+                        <View>
+                            <Ionincons name="cloud-upload-outline" size={30} color="black"/>
+                        </View>
+                    )
+                }}
             />
         </BottomTabs.Navigator>
     )

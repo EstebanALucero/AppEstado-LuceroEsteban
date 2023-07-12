@@ -1,25 +1,33 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { FlatList, StyleSheet, View } from 'react-native'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux"
 
-import { ORDERS } from '../Data/Orders'
-import OrderItem from '../Components/OrderItem'
+import FiguraItem from '../Components/FiguraItem/FiguraItem'
+import { loadFiguras } from '../Store/Actions/Figura.action'
 
 const OrdersScreen = () => {
 
-    const handeleDeleteOrder = () => {
-        console.log("Eliminar orden")
-    }
+  const dispatch = useDispatch()
+  const figura = useSelector(state => state.figuras.figuras)
 
-    const renderOrderItem = ({ item }) => (
-        <OrderItem item={item} onDelete={handeleDeleteOrder}/>
-    )
+  useEffect(() => {
+    dispatch(loadFiguras())
+  }, [])
+  
+  const renderFiguraItem = ({item}) => (
+    <FiguraItem
+    title={item.title}
+    image={item.image}
+    descripcion={item.descripcion}
+    />
+  )
 
   return (
     <View>
       <FlatList 
-      data={ORDERS}
+      data={figura}
       keyExtractor={item => item.id}
-      renderItem={renderOrderItem}
+      renderItem={renderFiguraItem}
       />
     </View>
   )

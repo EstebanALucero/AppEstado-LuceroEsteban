@@ -1,10 +1,17 @@
 import { useFonts } from 'expo-font';
 import { StyleSheet, } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
-import BottomTabNavigator from './src/Navigation/BottomTabNavigator';
+import MainNavigator from "./src/Navigation"
 import Store from './src/Store';
+import { init } from './src/db';
+
+init()
+  .then(() => console.log("Base de datos iniciada"))
+  .catch(err => {
+    console.log("Base de datos no creada")
+    console.log(err.message)
+  })
 
 export default function App() {
 
@@ -17,9 +24,7 @@ export default function App() {
   
   return (
     <Provider store={Store}>
-      <NavigationContainer>
-        <BottomTabNavigator />
-      </NavigationContainer>
+        <MainNavigator />
     </Provider>
   );
 }

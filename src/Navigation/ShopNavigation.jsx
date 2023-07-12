@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Ionicons from "@expo/vector-icons/Ionicons"
 
 import CategoriesScreen from '../Screens/CategoriesScreen'
 import CategoryFigurasScreen from '../Screens/CategoryFigurasScreen'
@@ -21,7 +22,9 @@ const ShopNavigation = () => {
       <Stack.Screen 
         name='Home' 
         component={CategoriesScreen} 
-        options={{ title: "Categories",}}
+        options={({navigation}) => ({
+          title: "Categories",
+        })}
       />
       <Stack.Screen 
         name='Figuras' 
